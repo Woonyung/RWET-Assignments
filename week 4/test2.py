@@ -8,10 +8,6 @@
 import sys
 import re
 
-# arguments passed on command line
-bestReview = sys.argv[1]
-worstReview = sys.argv[2]
-
 # make a blank list
 bestList = list()
 worstList = list()
@@ -28,8 +24,8 @@ def addListofWords(inputs, newList):
 		words = re.split('\s+', line)
 		newList += words
 
-addListofWords(bestReview, bestList)
-addListofWords(worstReview, worstList)
+addListofWords('review_best1.txt', bestList)
+addListofWords('review_worst1.txt', worstList)
 
 
 # looping through bestList, put only even elements to the Mashups
@@ -41,9 +37,8 @@ for index, word in enumerate(bestList):
 # looping through worstList, put only odd elements to the Mashups
 for index, word in enumerate(worstList):
 	if index % 2  == 0 :
+		print ""
 	else : 
-		print index
 		mashUp.insert(index, word)
 
-
-print mashUp
+print " ".join(mashUp)
